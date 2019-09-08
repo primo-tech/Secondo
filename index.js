@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const { prefix, token } = require('./config.json');
+const prefix = "+"
 const client = new Discord.Client();
 
 client.once('ready', () =>
@@ -40,16 +40,16 @@ client.on('message', message =>
 		}
 		
 		else if(message.content.startsWith(`${prefix}test`))
-                {
-                        let user = message.mentions.members.first();
+        {
+            let user = message.mentions.members.first();
 
-                        const general = message.guild.channels.find(ch => ch.name === 'general');
+            const general = message.guild.channels.find(ch => ch.name === 'general');
                         
-                        general.send(`Omae Wa Mou, SHINDEIRU!!!!, ${user.displayName} !`);
-                }
+            general.send(`Omae Wa Mou, SHINDEIRU!!!!, ${user.displayName} !`);
+        }
 
 	}
 });
 
-client.login(token);
+client.login(process.env.BOT_TOKEN);
 
